@@ -1,0 +1,58 @@
+{
+    "name": "konductor",
+    "remoteUser": "vscode",
+    "dockerFile": "Dockerfile",
+    "init": true,
+    "privileged": true,
+    "overrideCommand": false,
+    "updateRemoteUserUID": true,
+    "shutdownAction": "stopContainer",
+    "securityOpt": [
+        "seccomp=unconfined"
+    ],
+    "runArgs": [
+        "--privileged",
+        "--network=host",
+        "--device=/dev/kvm"
+    ],
+    "mounts": [
+        "source=dind-var-lib-docker,target=/var/lib/docker,type=volume",
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
+    ],
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/home/vscode/go/bin"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "postCreateCommand": "npm install",
+    "forwardPorts": [
+        1313,
+        2222,
+        6000,
+        7681,
+        7682,
+        7683,
+        7684,
+        8080
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscodevim.vim",
+                "github.copilot",
+                "stateful.runme",
+                "redhat.vscode-yaml",
+                "esbenp.prettier-vscode",
+                "ms-vsliveshare.vsliveshare",
+                "ms-azuretools.vscode-docker",
+                "github.vscode-github-actions",
+                "ms-vscode.vscode-typescript-next",
+                "github.vscode-pull-request-github",
+                "ms-vscode-remote.remote-containers",
+                "randomfractalsinc.vscode-data-table",
+                "visualstudioexptteam.vscodeintellicode",
+            ]
+        }
+    }
+}
