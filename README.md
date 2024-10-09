@@ -52,6 +52,8 @@ https.get('https://runme.dev/runme_cube.svg', (response) => {
 
 ## Ohai large ▶️ Runme logo
 
+Change the ratio with the cell below and rerun the previous cell to see its effect.
+
 ```sh {"id":"01J9PTV1YKNA83TESRZ18WC90D","promptEnv":"yes","terminalRows":"3"}
 export IMG_RATIO="Enter the ratio of the image, e.g. 0.04"
 echo "IMG_RATIO=${IMG_RATIO}"
