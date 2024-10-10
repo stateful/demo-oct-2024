@@ -244,6 +244,7 @@
       ]
     }
   ],
+  "workbench.startupEditor": "none",
   "runme.server.runnerVersion": "v1",
   "runme.experiments.smartEnvStore": false,
 }
